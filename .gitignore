@@ -8,6 +8,7 @@ build
 .DS_Store
 
 # VS Code java plugin's project files 
+bin
 .classpath
 .project
 .settings
