@@ -1,14 +1,13 @@
 package javafx.todo.controller;
 
-import javafx.todo.model.Model;
-
 public class ControllerManager implements Controller {
     private final TodoInputController todoInputController;
     private final TodoListController todoListController;
 
-    public ControllerManager(Model model) {
-        this.todoInputController = new TodoInputControllerImpl(model);
-        this.todoListController = new TodoListControllerImpl(model);
+    public ControllerManager(TodoInputController todoInputController,
+            TodoListController todoListController) {
+        this.todoInputController = todoInputController;
+        this.todoListController = todoListController;
     }
 
     @Override
