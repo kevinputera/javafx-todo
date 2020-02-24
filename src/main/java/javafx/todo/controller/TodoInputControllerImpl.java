@@ -1,6 +1,5 @@
 package javafx.todo.controller;
 
-import javafx.beans.property.StringProperty;
 import javafx.todo.model.Model;
 
 public class TodoInputControllerImpl implements TodoInputController {
@@ -8,11 +7,6 @@ public class TodoInputControllerImpl implements TodoInputController {
 
     public TodoInputControllerImpl(Model model) {
         this.model = model;
-    }
-
-    @Override
-    public StringProperty inputProperty() {
-        return model.inputProperty();
     }
 
     @Override

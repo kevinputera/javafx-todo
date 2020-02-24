@@ -1,9 +1,6 @@
 package javafx.todo.controller;
 
-import javafx.beans.property.StringProperty;
-import javafx.collections.ObservableList;
 import javafx.todo.model.Model;
-import javafx.todo.model.Todo;
 
 public class ControllerManager implements Controller {
     private final TodoInputController todoInputController;
@@ -15,18 +12,8 @@ public class ControllerManager implements Controller {
     }
 
     @Override
-    public StringProperty inputProperty() {
-        return todoInputController.inputProperty();
-    }
-
-    @Override
     public void setInput(String input) {
         todoInputController.setInput(input);
-    }
-
-    @Override
-    public ObservableList<Todo> getTodos() {
-        return todoListController.getTodos();
     }
 
     @Override
