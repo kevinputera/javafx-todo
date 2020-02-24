@@ -38,7 +38,7 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void setDone(int index, boolean done) {
-        todoListModel.setDone(index, done);
+    public void setDone(int id, boolean done) {
+        todoListModel.setDone(id, done);
     }
 }

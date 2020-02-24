@@ -4,24 +4,26 @@ package javafx.todo.model;
  * Represents an immutable todo item.
  */
 public class Todo {
+    private final int id;
     private final String title;
     private final boolean done;
 
-    public Todo(String title) {
-        this(title, false);
+    public Todo(int id, String title) {
+        this(id, title, false);
     }
 
-    public Todo(String title, boolean done) {
+    public Todo(int id, String title, boolean done) {
+        this.id = id;
         this.title = title;
         this.done = done;
     }
 
-    public String getTitle() {
-        return title;
+    public int getId() {
+        return id;
     }
 
-    public Todo setTitle(String title) {
-        return new Todo(title, done);
+    public String getTitle() {
+        return title;
     }
 
     public boolean isDone() {
@@ -29,6 +31,6 @@ public class Todo {
     }
 
     public Todo setDone(boolean done) {
-        return new Todo(title, done);
+        return new Todo(id, title, done);
     }
 }

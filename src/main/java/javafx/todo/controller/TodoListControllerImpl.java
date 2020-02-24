@@ -15,7 +15,7 @@ public class TodoListControllerImpl implements TodoListController {
     }
 
     @Override
-    public void setDone(int index, boolean done) {
-        model.setDone(index, done);
+    public void setDone(int id, boolean done) {
+        model.setDone(id, done);
     }
 }

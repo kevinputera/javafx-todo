@@ -21,7 +21,7 @@ public class ControllerManager implements Controller {
     }
 
     @Override
-    public void setDone(int index, boolean done) {
-        todoListController.setDone(index, done);
+    public void setDone(int id, boolean done) {
+        todoListController.setDone(id, done);
     }
 }
