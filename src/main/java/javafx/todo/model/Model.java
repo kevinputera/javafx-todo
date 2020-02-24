@@ -1,4 +1,3 @@
 package javafx.todo.model;
 
-public interface Model {
-}
+public interface Model extends TodoInputModel, TodoListModel { }
