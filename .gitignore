@@ -1,0 +1,13 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+# OSX file system
+.DS_Store
+
+# VS Code java plugin's project files 
+.classpath
+.project
+.settings
