@@ -4,8 +4,6 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.todo.controller.Controller;
 import javafx.todo.controller.ControllerManager;
-import javafx.todo.controller.TodoInputController;
-import javafx.todo.controller.TodoInputControllerImpl;
 import javafx.todo.controller.TodoListController;
 import javafx.todo.controller.TodoListControllerImpl;
 import javafx.todo.model.Model;
@@ -24,9 +22,8 @@ public class App extends Application {
         TodoListModel todoListModel = new TodoListModelImpl();
         Model model = new ModelManager(todoInputModel, todoListModel);
 
-        TodoInputController todoInputController = new TodoInputControllerImpl(model);
         TodoListController todoListController = new TodoListControllerImpl(model);
-        Controller controller = new ControllerManager(todoInputController, todoListController);
+        Controller controller = new ControllerManager(todoListController);
 
         View view = new ViewManager(controller, model);
         view.start(primaryStage);

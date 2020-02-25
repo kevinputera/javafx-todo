@@ -1,3 +1,3 @@
 package javafx.todo.controller;
 
-public interface Controller extends TodoInputController, TodoListController { }
+public interface Controller extends TodoListController { }
