@@ -5,9 +5,11 @@ import javafx.todo.model.Model;
 import javafx.todo.model.Todo;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TreeCell;
+import javafx.scene.control.TreeView;
 
-public class TodoListView extends ListView<Todo> {
-    private static class TodoListCell extends ListCell<Todo> {
+public class TodoListView extends TreeView<Todo> {
+    private static class TodoListCell extends TreeCell<Todo> {
         private final Controller controller;
 
         public TodoListCell(Controller controller) {
@@ -31,6 +33,8 @@ public class TodoListView extends ListView<Todo> {
                 });
             }
         }
+
+
     }
 
     private static final double PREF_HEIGHT = 250;

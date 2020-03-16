@@ -2,6 +2,7 @@ package javafx.todo.model;
 
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TreeItem;
 
 public class ModelManager implements Model {
     private final TodoInputModel todoInputModel;
@@ -28,7 +29,7 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public ObservableList<Todo> getTodos() {
+    public TreeItem<Todo> getTodos() {
         return todoListModel.getTodos();
     }
 
