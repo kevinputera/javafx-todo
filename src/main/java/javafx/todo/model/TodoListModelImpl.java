@@ -1,35 +1,44 @@
 package javafx.todo.model;
 
 import java.util.Collection;
+
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TreeItem;
 
 public class TodoListModelImpl implements TodoListModel {
     private final IdGenerator idGenerator = new IdGenerator();
-    private final ObservableList<Todo> todos;
+    private final TreeItem<Todo> todos;
+    Property<Todo> currentTodo = new SimpleObjectProperty<Todo>();
 
     public TodoListModelImpl() {
-        this(FXCollections.emptyObservableList());
+        this(new TodoTree());
     }
 
-    public TodoListModelImpl(Collection<? extends Todo> todos) {
-        this.todos = FXCollections.observableArrayList(todos);
+    public TodoListModelImpl(TodoTree todoTree) {
+        this.todos = todoTree.getTree();
     }
 
     @Override
-    public ObservableList<Todo> getTodos() {
+    public TreeItem<Todo> getTodos() {
         return todos;
     }
 
     @Override
     public void addTodo(String title) {
-        todos.add(new Todo(idGenerator.getId(), title));
+        todos.getChildren().get(0).getChildren().add(new TreeItem<Todo>(new Todo(idGenerator.getId(), title)));
     }
 
     @Override
     public void setDone(int id, boolean done) {
-        Todo todo = todos.stream().filter(t -> t.getId() == id).findFirst().orElseThrow();
-        int index = todos.indexOf(todo);
-        todos.set(index, todo.setDone(done));
+        TreeItem<Todo> todo = (todos.getChildren()
+            .stream()
+            .filter(t -> t.getValue().getId() == id).
+            findFirst().
+            orElseThrow());
+        int index = todos.getChildren().indexOf(todo);
+        todos.getChildren().set(index, new TreeItem<Todo>(todo.getValue().setDone(done)));
     }
 }
